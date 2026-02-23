@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Formula Detector</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- KaTeX (CDN) - faster client-side TeX rendering -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="headerRow">
+          <div>
+            <h1 class="title">Mathematical Formula Detection & Retrieval</h1>
+            <p class="subtitle">
+              Enter a formula, detect tokens, and retrieve related formulas from a local JSON database.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main">
+      <section class="panel inputPanel" aria-label="Formula input">
+        <label class="label" for="formulaInput">Mathematical expression</label>
+        <div class="inputRow">
+          <input
+            id="formulaInput"
+            class="textInput"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder='Examples: a^2 + b^2, sin(x), "integration x dx"'
+          />
+          <button id="detectBtn" class="primaryBtn" type="button">Detect Formula</button>
+        </div>
+
+        <div class="helperRow">
+          <div class="hint">
+            Tip: Use LaTeX-style input for best rendering (e.g. <code>\sin(x)</code>,
+            <code>\int x\,dx</code>).
+          </div>
+        </div>
+
+        <div class="tokens" aria-label="Detected tokens">
+          <div class="tokensHeader">
+            <span class="tokensTitle">Detected tokens</span>
+          </div>
+          <div id="tokensList" class="tokensList" role="list"></div>
+        </div>
+
+        <div class="preview" aria-label="Input preview">
+          <div class="previewHeader">
+            <span class="previewTitle">Preview</span>
+            <span id="previewStatus" class="pill subtle" title="How your input is rendered">KaTeX</span>
+          </div>
+          <div id="inputPreview" class="previewBox"></div>
+        </div>
+      </section>
+
+      <section class="panel resultsPanel" aria-label="Results">
+        <div class="resultsHeader">
+          <h2 class="resultsTitle">Results</h2>
+          <div id="resultsMeta" class="resultsMeta"></div>
+        </div>
+
+        <div id="results" class="results" aria-live="polite"></div>
+      </section>
+
+      <section class="panel examplesPanel" aria-label="Quick examples">
+        <div class="examplesHeader">
+          <h2 class="resultsTitle">Quick examples</h2>
+          <div class="smallText">Click an example to auto-fill the input.</div>
+        </div>
+        <div id="exampleChips" class="chips" role="list"></div>
+      </section>
+
+      <section class="panel tutorPanel" aria-label="Formula tutor">
+        <div class="tutorHeader">
+          <h2 class="resultsTitle">Formula Tutor</h2>
+          <div class="smallText">Ask questions about the selected formula.</div>
+        </div>
+
+        <div id="tutorContext" class="tutorContext" aria-label="Selected formula">
+          <div class="tutorContextTitle">No formula selected</div>
+          <div class="tutorContextFormula"></div>
+        </div>
+
+        <div id="tutorMessages" class="tutorMessages" aria-label="Chat messages"></div>
+
+        <div class="tutorInputRow" aria-label="Chat input">
+          <input
+            id="tutorInput"
+            class="textInput"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder='Try: "What does this mean?" or "Give an example"'
+          />
+          <button id="tutorSend" class="primaryBtn" type="button">Send</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footerInner">
+        <span>Vanilla JS • Client-side only • KaTeX rendering</span>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -71,17 +71,3 @@ Renders mathematical expressions dynamically using MathJax.
 3. Mathematical tokens and keywords are extracted.
 4. The retrieval engine searches the formula dataset.
 5. Related formulas are dynamically displayed in rendered mathematical format.
-
----
-
-## Project Structure
-math-formula-detection-webapp/
-│
-├── index.html
-├── style.css
-├── script.js
-│
-├── data/
-│ └── formulas.json
-│
-└── README.md

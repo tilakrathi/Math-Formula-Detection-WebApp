@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-https://your-username.github.io/math-formula-detection-webapp/
+https://tilakrathi.github.io/Math-Formula-Detection-WebApp/
 
 ## Overview
 
